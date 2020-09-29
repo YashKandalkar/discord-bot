@@ -123,6 +123,9 @@ client.on("message", (message) => {
     }, 3000);
     return;
   }
+  if (config.blocked_ids.includes(message.author.id.toString())) {
+    return;
+  }
   levelListen.listener(message);
   hearts.listener(message);
   if (message.attachments.array().length > 0) {
